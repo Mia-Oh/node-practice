@@ -15,7 +15,7 @@ const ip = 'localhost';
 const port = '8080';
 
 // client 디렉토리에 정적 파일 로드
-server.use(express.static('clinet'));
+server.use(express.static('client'));
 
 server.post('/upper', (req, res) => {
   let result = req.body.toUpperCase()
