@@ -10,6 +10,7 @@ server.use(cors());
 // 원시 자료형에도 parsing 해주도록 설정
 server.use(express.json({strict:false}));
 
+// server는 서버를 시작하며 8080 포트에서 연결을 청취함
 const ip = 'localhost';
 const port = '8080';
 
@@ -17,11 +18,13 @@ const port = '8080';
 server.use(express.static('clinet'));
 
 server.post('/upper', (req, res) => {
-  console.log(req.body);
+  let result = req.body.toUpperCase()
+  res.json(result);  
 })
 
 server.post('/lower', (req, res) => {
-  console.log(req.body);
+  let result = req.body.toLowerCase()
+  res.json(result);  
 })
 
 server.listen(port, () => {
